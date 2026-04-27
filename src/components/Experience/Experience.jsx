@@ -21,8 +21,8 @@ const Experience = () => {
       </div>
 
       {/* Middle content */}
-      <div className="flex flex-col gap-8">
-        <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold leading-[1.25] tracking-tight text-white/25 w-full max-w-4xl">
+      <div className="flex flex-col gap-6">
+        <h2 className="text-xl md:text-2xl lg:text-[1.85rem] font-bold leading-[1.2] tracking-tight text-white/25 w-full max-w-2xl">
           I have{' '}
           <span className="text-white">8+ months of experience</span>,{' '}
           I'm building not just applications, here I am building a successful{' '}
@@ -31,21 +31,21 @@ const Experience = () => {
         </h2>
 
         <div className="w-full flex justify-end">
-          <div className="w-[52%]">
+          <div className="w-full md:w-[60%] lg:w-[48%]">
             {timeline.map((item, i) => (
               <div
                 key={i}
-                className={`grid grid-cols-3 items-center py-[32px] border-b border-white/[0.08] group cursor-default ${
+                className={`flex flex-col sm:grid sm:grid-cols-3 items-start sm:items-center py-4 sm:py-6 border-b border-white/[0.08] group cursor-default gap-1 sm:gap-0 ${
                   i === 0 ? 'border-t border-white/[0.08]' : ''
                 }`}
               >
-                <span className="text-[15px] font-bold text-white/85 group-hover:text-white transition-colors duration-200 tracking-tight">
+                <span className="text-[13px] sm:text-[14px] font-bold text-white/85 group-hover:text-white transition-colors duration-200 tracking-tight">
                   {item.company}
                 </span>
-                <span className="text-[13px] font-normal text-white/35">
+                <span className="text-[11px] sm:text-[12px] font-normal text-white/35">
                   {item.role}
                 </span>
-                <span className="text-[13px] font-normal text-white/30 text-right">
+                <span className="text-[10px] sm:text-[11px] font-normal text-white/30 sm:text-right">
                   {item.date}
                 </span>
               </div>

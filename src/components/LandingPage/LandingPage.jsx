@@ -39,13 +39,13 @@ const LandingPage = () => {
     <div id="home" className="min-h-screen bg-black text-white selection:bg-white/10 overflow-x-hidden relative flex flex-col scroll-smooth">
       
       {/* Fixed Navbar - Standardized */}
-      <nav className="fixed top-0 left-0 w-full pt-8 sm:pt-10 z-50 pointer-events-none">
-        <div className="flex items-center justify-center gap-6 sm:gap-10 md:gap-16 px-4 pointer-events-auto">
+      <nav className="fixed top-0 left-0 w-full pt-6 sm:pt-10 z-50 pointer-events-none">
+        <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-10 md:gap-16 px-4 pointer-events-auto">
           {navItems.map((item, index) => (
             <a 
               key={index} 
               href={`#${item.toLowerCase().replace(/\s+/g, '-')}`} 
-              className="relative overflow-hidden group text-[11px] sm:text-[13px] font-bold tracking-[0.2em] uppercase py-1 text-white/30 hover:text-white transition-all duration-500"
+              className="relative overflow-hidden group text-[10px] sm:text-[13px] font-bold tracking-[0.2em] uppercase py-1 text-white/30 hover:text-white transition-all duration-500"
             >
               <span className="block transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-full">
                 {item}
@@ -59,34 +59,34 @@ const LandingPage = () => {
       </nav>
 
       {/* Main Container */}
-      <div className="relative z-10 flex flex-col flex-grow w-full px-10 md:px-20 lg:px-28 justify-center min-h-screen">
+      <div className="relative z-10 flex flex-col flex-grow w-full px-6 sm:px-10 md:px-20 lg:px-28 justify-center min-h-screen">
         
         {/* Universal Top Label for Home */}
-        <div className="absolute top-10 flex items-center gap-5">
+        <div className="absolute top-20 sm:top-10 flex items-center gap-5">
           <span className="text-[12px] font-light text-white/40 tracking-widest uppercase">Introduction</span>
           <div className="w-8 h-[0.5px] bg-white/20" />
         </div>
 
         {/* Hero Content - Left Aligned for Impact */}
-        <main className="max-w-6xl w-full">
+        <main className="max-w-5xl w-full mt-10 sm:mt-0">
           <div className="flex flex-col gap-4 sm:gap-6">
             {/* Large Intro Label */}
-            <div className="text-2xl sm:text-4xl md:text-5xl text-white/25 font-semibold tracking-tighter mb-1">
+            <div className="text-lg sm:text-3xl md:text-4xl text-white/25 font-semibold tracking-tighter mb-1">
               Hi, I am
             </div>
 
-            {/* Impactful Name Headline - Scaled back slightly */}
-            <h1 className="text-5xl sm:text-7xl md:text-[6.5rem] lg:text-[7.5rem] font-bold leading-[1] tracking-tighter text-white">
-              Venkatesh Kamble.
+            {/* Impactful Name Headline - Scaled down for 100% zoom */}
+            <h1 className="text-4xl sm:text-6xl md:text-[5rem] lg:text-[6rem] font-bold leading-[1.1] sm:leading-[1] tracking-tighter text-white">
+              Venkatesh K.
             </h1>
             
             {/* Role & Bio Combo */}
-            <div className="max-w-2xl mt-4 space-y-8">
-              <h2 className="text-xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white/80">
-                Fullstack Engineer on a mission to <br className="hidden md:block" /> integrate AI into every digital solution.
+            <div className="max-w-2xl mt-2 space-y-6">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold tracking-tight text-white/80 leading-snug">
+                A Fullstack Engineer
               </h2>
               
-              <p className="text-lg sm:text-xl text-white/40 font-medium leading-relaxed max-w-2xl">
+              <p className="text-base sm:text-lg text-white/40 font-medium leading-relaxed max-w-xl">
                 I started with curiosity, and now obsessed with building applications that feel scalable, reliable and performant.
               </p>
             </div>

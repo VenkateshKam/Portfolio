@@ -64,7 +64,7 @@ const AboutMe = () => {
   const ImageSequence = useMemo(() => (
     <div 
       ref={imagesContainerRef}
-      className="relative w-56 h-96 md:w-64 md:h-[30rem] overflow-hidden rounded-2xl"
+      className="relative w-48 h-80 md:w-56 md:h-[26rem] overflow-hidden rounded-2xl"
       style={{
         // Nice impressive form: Gradient mask to fade top/bottom
         WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
@@ -98,7 +98,7 @@ const AboutMe = () => {
             <span className="text-[12px] font-light text-white/40 tracking-widest uppercase">About Me</span>
             <div className="w-8 h-[0.5px] bg-white/20" />
           </div>
-          <h2 className="mt-20 text-3xl md:text-4xl lg:text-[2.75rem] font-bold leading-[1.25] tracking-tight text-white/25 w-full max-w-4xl">
+          <h2 className="mt-10 sm:mt-16 text-2xl md:text-3xl lg:text-[2.25rem] font-bold leading-[1.2] tracking-tight text-white/25 w-full max-w-3xl">
             This is how my journey <br />
             continues <span className="text-white">forward</span>.
           </h2>
@@ -117,7 +117,7 @@ const AboutMe = () => {
             </div>
 
             {/* Right - Text blocks */}
-            <div className="w-full md:w-1/2 h-[50vh] md:h-full flex flex-col justify-center relative z-30">
+            <div className="w-full md:w-1/2 h-[60vh] md:h-full flex flex-col justify-center relative z-30">
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-white/[0.01] rounded-full blur-[100px] pointer-events-none"></div>
 
               {[
@@ -130,12 +130,12 @@ const AboutMe = () => {
                   key={item.id}
                   className={`transition-all duration-700 absolute w-full max-w-xl ${scrollProgress >= item.range[0] && scrollProgress < item.range[1] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8 pointer-events-none'}`}
                 >
-                  <div className="py-10 md:py-12 relative border-y border-white/10">
-                    <div className="flex items-center gap-4 mb-6">
+                  <div className="py-6 sm:py-8 md:py-10 relative border-y border-white/10 mx-4 sm:mx-0">
+                    <div className="flex items-center gap-4 mb-4 sm:mb-5">
                       <span className="text-white/30 font-mono text-sm tracking-widest">{item.id}</span>
-                      <h3 className="text-3xl md:text-4xl text-white/90 font-bold tracking-tight">{item.title}</h3>
+                      <h3 className="text-2xl sm:text-3xl text-white/90 font-bold tracking-tight">{item.title}</h3>
                     </div>
-                    <p className="text-xl md:text-[22px] text-white/80 leading-relaxed font-medium">{item.text}</p>
+                    <p className="text-[15px] sm:text-lg md:text-[20px] text-white/80 leading-relaxed font-medium">{item.text}</p>
                   </div>
                 </div>
               ))}

@@ -152,7 +152,7 @@ const Work = () => {
               key={project.id}
               onClick={() => openModal(project)}
               onMouseMove={handleMouseMove}
-              className="group cursor-none relative w-full h-[400px]"
+              className="group md:cursor-none relative w-full h-[320px]"
             >
               {/* Card Background and Content Wrapper */}
               <div className="absolute inset-0 rounded-2xl overflow-hidden transition-all duration-500 border border-white/[0.08] group-hover:border-white/20 bg-black flex flex-col">
@@ -163,12 +163,12 @@ const Work = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/90 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
-                <div className="absolute inset-0 p-8 flex flex-col justify-end translate-y-6 group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                  <div className="text-[12px] text-white/80 font-medium tracking-widest uppercase mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">{project.type}</div>
-                  <h3 className="text-3xl font-bold text-white/85 group-hover:text-white transition-colors duration-200 tracking-tight mb-6">{project.title}</h3>
-                  <div className="flex flex-wrap gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200">
+                <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                  <div className="text-[11px] text-white/80 font-medium tracking-widest uppercase mb-2 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500 delay-100">{project.type}</div>
+                  <h3 className="text-2xl font-bold text-white/85 group-hover:text-white transition-colors duration-200 tracking-tight">{project.title}</h3>
+                  <div className="flex flex-wrap gap-2 mt-4 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500 delay-200">
                     {project.techStack.map((tech, idx) => (
-                      <span key={idx} className="text-[13px] text-white/85 font-normal px-4 py-1.5 rounded-full bg-black/50 backdrop-blur-md border border-white/[0.08]">
+                      <span key={idx} className="text-[11px] text-white/85 font-normal px-3 py-1 rounded-full bg-black/50 backdrop-blur-md border border-white/[0.08]">
                         {tech}
                       </span>
                     ))}
@@ -176,9 +176,9 @@ const Work = () => {
                 </div>
               </div>
 
-              {/* Custom Hover Follower - Unclipped */}
+              {/* Custom Hover Follower - Unclipped - Only on Desktop */}
               <div 
-                className="pointer-events-none absolute z-50 flex items-center gap-3 px-7 py-3.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/90 text-[16px] font-mono tracking-wide opacity-0 group-hover:opacity-100 transition-opacity duration-200 shadow-2xl"
+                className="hidden md:flex pointer-events-none absolute z-50 items-center gap-3 px-7 py-3.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/90 text-[16px] font-mono tracking-wide opacity-0 group-hover:opacity-100 transition-opacity duration-200 shadow-2xl"
                 style={{
                   left: hoverPos.x,
                   top: hoverPos.y,
@@ -264,7 +264,19 @@ const Work = () => {
             </div>
 
             {/* Info Section */}
-            <div className="w-full lg:w-[40%] p-6 sm:p-8 lg:p-10 flex flex-col overflow-y-auto">
+            <div 
+              className="w-full lg:w-[40%] p-6 sm:p-10 flex flex-col overflow-y-auto"
+              style={{
+                scrollbarWidth: 'none',
+                msOverflowStyle: 'none',
+                WebkitOverflowScrolling: 'touch',
+              }}
+            >
+              <style dangerouslySetInnerHTML={{ __html: `
+                .overflow-y-auto::-webkit-scrollbar {
+                  display: none;
+                }
+              `}} />
               <div className="mb-2 text-[12px] font-light tracking-widest text-white/40 uppercase">
                 {selectedProject.category}
               </div>
