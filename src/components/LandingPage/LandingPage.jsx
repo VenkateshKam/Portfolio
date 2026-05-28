@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const ParticleBackground = () => {
   const [particles] = useState(() => {
@@ -34,12 +34,33 @@ const ParticleBackground = () => {
 
 const LandingPage = () => {
   const navItems = ['Home', 'About Me', 'Experience', 'Work', 'Contact'];
+  const [isNavVisible, setIsNavVisible] = useState(true);
+
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      // Hide if scrolling down and past 50px, show if scrolling up
+      if (currentScrollY > lastScrollY && currentScrollY > 50) {
+        setIsNavVisible(false);
+      } else if (currentScrollY < lastScrollY) {
+        setIsNavVisible(true);
+      }
+      
+      lastScrollY = currentScrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <div id="home" className="min-h-screen bg-black text-white selection:bg-white/10 overflow-x-hidden relative flex flex-col scroll-smooth">
       
       {/* Fixed Navbar - Standardized */}
-      <nav className="fixed top-0 left-0 w-full pt-6 sm:pt-10 z-50 pointer-events-none">
+      <nav className={`fixed top-0 left-0 w-full pt-6 sm:pt-10 z-50 pointer-events-none transition-transform duration-500 ease-in-out ${isNavVisible ? 'translate-y-0' : '-translate-y-full'}`}>
         <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-10 md:gap-16 px-4 pointer-events-auto">
           {navItems.map((item, index) => (
             <a 
